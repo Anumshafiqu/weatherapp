@@ -13,44 +13,46 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-     font-family: Verdana, Geneva, Tahoma, sans-serif;
-     font-size: 16px;
-     width: 100%;
-     height: 100vh;
-     background-color: var(--blue-1);
+.search-continer{
+    background-color:#4C52AD ;
 }
 .container{
-    width: 400px;
+    width: 6600px;
     height: 80vh;
     background-color: var(--blue-2);
     border-radius: 20px;
     box-shadow: 10px 10px 10px var(--shadow-dark);
 }
+input{
+background-color: #3C429E;
+border : 2px solid #3C429E
+}
+
 
 .main{
     background-color: #4C52AD;
     border-radius: 20px;
     width: 500px;
-    height: 800px;
+    height: auto;
     box-shadow: rgba(0 ,0 , 0, 0.3);
-margin-left: 200px;
+margin-left: 350px;
+border:  2px solid #2f336e;
 
 }
 .upper-data{
     position: relative;
     overflow: hidden;
     width: 100%;
-    height: 50%;
+    height: 300px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
-.upper-data img{
-    position: absolute;
+ .upper-data img{
+    height: 100%;
     top: 0;
     left: 0;
-    height: 100%;
     width: 100%;
+    position: absolute;
 }
 .weather-data{
     position: relative;
@@ -78,8 +80,23 @@ margin-top: 1em;
   align-items: center;
 } */
  .info-lock-label img{
-    width: 1.5em;
+    width: 30px;
 } 
+.info-block-values{
+    margin-left: 100px;
+}
+.info-block-value-1{
+    margin-left: 70px;
+}
+.info-block-value-2{
+    margin-left: 80px;
+}
+.info-block-values-3{
+    margin-left: 90px;
+}
+.info-block-value-4{
+    margin-left: 60px;
+}
 /* .info-block-value{
     width: 50%;
     display: flex;
@@ -96,3 +113,6 @@ padding: 10px;
 display: flex;
 flex-direction: column;
 } */
+ .image{
+    width: 100px;
+ }

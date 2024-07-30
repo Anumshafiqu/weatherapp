@@ -60,12 +60,21 @@ export class WeatherAppComponent {
 //   })
 // }
 constructor(private weatherDervice:WeatherService){}
-temrature:number = 0;
-Mintemrature:number = 0;
+temp:number= 0;
+// temprature:number = 0;
+// Mintemprature:number = 0;
+// humidity:number = 0;
+// weather:string = '';
+// query:boolean = false;
+// pressure:number = 0;
+temp_max:number = 0;
+temp_min:number=0;
 humidity:number = 0;
-weather:string = '';
-query:boolean = false;
-pressure:number = 0;
+grnd_level:number = 0;
+feels_like:number = 0;
+sea_level:number= 0;
+
+
 
 city:any= "";
 
@@ -73,12 +82,19 @@ getWeather(){
   // console.log(this.city);
   this.weatherDervice.getWeather(this.city).subscribe(data=>{
     console.log(data);
-    this.query = true;
-    this.Mintemrature = data.main.temp_min -273
-    this.temrature = data.main.temp_max - 273
+    // this.query = true;
+    this.temp_max = data.main.temp_max -273
+    this.temp= data.main.temp -273
+    this.temp_min =data.main.temp_min -273
     this.humidity = data.main.humidity;
-    this.weather = data.weather[0].main;
-    this.pressure = data.main.pressure
+    this.grnd_level = data.main.grnd_level -273
+    this.feels_like = data.main.feels_like -273
+    this.sea_level = data.main.sea_level;
+    // this.Mintemprature = data.main.temp_min -273
+    // this.temprature = data.main.temp_max - 273
+    // this.humidity = data.main.humidity;
+    // this.weather = data.weather[0].main;
+    // this.pressure = data.main.pressure
   })
 }
 
