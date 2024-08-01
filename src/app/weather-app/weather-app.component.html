@@ -1,98 +1,73 @@
 
 <div class="search-continer">
+    <form #Form="ngForm" (submit)="onSubmit()">
     <input type="text" placeholder="Enter city" class="p-2 mb-3 shadow rounded-pill w-25 mt-3 text-white" style="margin-left: 370px;"
-        [(ngModel)]="city">
-    <button class="btn btn-primary p-2 rounded-pill px-3 fw-bold mx-1" (click)="getWeather()">Search City</button>
+        [(ngModel)]="cityName" [ngModelOptions]="{standalone: true}">
 
-<div class="container main">
-    <div class="upper-data">
-        <img src="../../assets/weather.jpg" alt="" *ngIf="20 < 25" class="imag">
-        <img src="../../assets/cold.jpg" alt="" *ngIf="14 <= 15" class="imag">
-        <div class="weather-data">
-            <div class="location text-white text-center fs-3"> {{city}}</div>
-            <div class="temprature text-white text-center fw-bold fs-3 mt-2">{{ temp | number:'1.0-0'}} ° C</div>
-        </div>
-    </div>
-    <div class="lower-data">
-        <div class="more-info-lable text-white m-3">
-            More information
-        </div>
-        <div class="more-info-container m-3 rounded">
-             <!-- <div class="d-flex">  -->
-            <div class="info-block d-flex m-4 mx-4">
-                <div class="info-lock-label m-4">
-                    <img src="../../assets/hot-159386_640.png" alt="">
-                    <span class="text-white fs-6 small mx-3 ">temp_max :</span>
-                </div>
-                <div class="info-block-value text-white fw-medium m-4 mt-5">
-                    {{temp_max | number:'1.0-0'}} ° C
+    </form>
+        <div class="container main" *ngIf="Root" >
+            <div class="upper-data">
+                <img src="../../assets/weather.jpg" alt="" *ngIf=" 15 < 19"  class="imag">
+                  <img src="../../assets/cold.jpg" alt="" *ngIf="15<=28" class="imag">  
+                <div class="weather-data">
+                     <div class="location text-white text-center fs-3"> {{cityName}}</div> 
+                      <div class="temprature text-white text-center fw-bold fs-3 mt-2">{{Root.current.temp_c |number:'1.0-0' }} ° C</div> 
+                     <div class="temprature text-white text-center fw-bold fs-3 mt-2">{{ todayDate | date:'d'}} <span>{{todayDate | date: 'MM,y'}}</span></div>
                 </div>
             </div>
-            <!-- block2 --->
-            <div class="info-block d-flex mx-5">
-                <div class="info-lock-label">
-                    <img src="../../assets/thermometer-151236_640.png" alt="" width="50px">
-                    <span class="text-white fs-6 small mx-3">temp_min</span>
+            <div class="lower-data">
+                <div class="more-info-lable text-white m-3">
+                    More information
                 </div>
-                <div class="info-block-value text-white fw-medium mx-5 mt-3">
-                    {{temp_min | number:'1.0-0'}} ° C
-                </div>
-            </div>
-            <!-- </div> -->
-            <!-- block3 -->
-            <!-- <div class="d-flex"> -->
-            <div class="info-block d-flex mt-5 mx-5">
-                <div class="info-lock-label">
-                    <img src="../../assets/humidity-3d-render-icon-illustration-png.webp" alt="">
-                    <span class="text-white fs-6 small mx-3">humidity</span>
-                </div>
-                <div class="info-block-value-4 text-white fw-medium">
-                    {{humidity
-                    }} %
-                </div>
-            </div>
-            <!-- block2 -->
-            <div class="info-block d-flex mx-5 m-5">
-                <div class="info-lock-label">
-                    <img src="../../assets/hot-temperaturethermometer-on-yellow-sky-260nw-2180966313.webp" alt="" class="image">
-                    <span class="text-white fs-6 small mx-2"> temp </span>
-                </div>
-                <div class="info-block-values text-white fw-medium mt-1 mb-4">
-                    {{temp | number:'1.0-0'}} ° C
-                </div>
-            </div>
+                <div class="more-info-container m-3 rounded">
+                  
+                    <div class="info-block d-flex m-4 mx-4">
+                        <div class="info-lock-label m-4">
+                            <img src="../../assets/hot-159386_640.png" alt="">
+                            <span class="text-white fs-6 small mx-3 ">temp_c :</span>
+                        </div>
+                        <div class="info-block-value text-white fw-medium m-4 mt-5">
+                       {{Root.current.temp_c | number:'1.0-0'}} ° C
+                        </div>
+                    </div>
+                    <!-- block2 --->
+                    <div class="info-block d-flex mx-5">
+                        <div class="info-lock-label">
+                            <img src="../../assets/thermometer-151236_640.png" alt="" width="50px">
+                            <span class="text-white fs-6 small mx-3">Gust</span>
+                        </div>
+                        <div class="info-block-value text-white fw-medium mt-3">
+                         {{Root.current.gust_kph |number :'1.0-0'}} kph
+                        </div>
+                    </div>
+         
+                    <div class="info-block d-flex mt-5 mx-5">
+                        <div class="info-lock-label">
+                            <img src="../../assets/humidity-3d-render-icon-illustration-png.webp" alt="">
+                            <span class="text-white fs-6 small mx-3">humidity</span>
+                        </div>
+                        <div class="info-block-value-4 text-white fw-medium">
+                          {{Root.current.humidity}} %
+                        </div>
+                    </div>
+                    <div class="info-block d-flex mt-5 mx-5">
+                        <div class="info-lock-label">
+                            <img src="../../assets/2157b96d613ffb0.jpg" alt="">
+                            <span class="text-white fs-6 small mx-3">Wind</span>
+                        </div>
+                        <div class="info-block-value text-white fw-medium">
+                          {{Root.current.wind_kph| number:'1.0-0'}} kph 
+                        </div>
+                    </div>
+               
+                    
             
-            <div class="info-block d-flex mx-5 m-5">
-                <div class="info-lock-label">
-                    <img src="../../assets/2157b96d613ffb0.jpg" alt="">
-                    <span class="text-white fs-6 small mx-2"> grnd_level
-                    </span>
+                     </div> 
+        
+         
                 </div>
-                <div class="info-block-value-1 text-white fw-medium mt-1 mb-4">
-                    {{grnd_level | number:'1.0-0'}}
-                </div>
-            </div>
-            <div class="info-block d-flex mx-5 m-5">
-                <div class="info-lock-label">
-                    <img src="../../assets/240_F_591819236_Etsnb6OVXMM68WBbUc6MRcoznSLQaAeL.jpg" alt="">
-                    <span class="text-white fs-6 small mx-2"> feels_like </span>
-                </div>
-                <div class="info-block-value-2 text-white fw-medium mt-1 mb-4">
-                    {{feels_like | number:'1.0-0'}}
-                </div>
-            </div> 
-            <div class="info-block d-flex mx-5 m-5">
-                <div class="info-lock-label">
-                    <img src="../../assets/240_F_502165681_FZgTeiw8tWjFJhyJPVKVGGJXyeyz4JrX.jpg" alt="">
-                    <span class="text-white fs-6 small mx-2"> sea_level </span>
-                </div>
-                <div class="info-block-values-3 text-white fw-medium mt-1 mb-4">
-                    {{sea_level | number:'1.0-0'}}
-                </div>
-            </div>
-            <!-- </div> -->
+   
+ 
 
 
-        </div>
     </div>
-</div>

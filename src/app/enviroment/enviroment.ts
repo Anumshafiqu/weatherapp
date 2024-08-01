@@ -1,68 +1,21 @@
 
+// export const envoiroment ={
+    // production:false,
+    // getWeatherapiBaseUrl:'https://openweather43.p.rapidapi.com/weather?appid=da0f9c8d90bde7e619c3ec47766a42f4&q=okara&units=standard',
+    // getWeather:'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13',
+    // XrapidAPIhostHeaderName:'x-rapidapi-host',
+    // XrapidAPIhostHeaderValue:'weatherapi-com.p.rapidapi.com',
+    // XrapidAPIhostHeaderValue:'openweather43.p.rapidapi.com',
+    // XrapidAPIKeyHeaderName:'x-rapidapi-key',
+    // XrapidAPIKeyHeaderValue:'05114c293amsh127f01a65041292p1e1ff2jsnf9aa3166e46b'
+    // XrapidAPIKeyHeaderValue:'05114c293amsh127f01a65041292p1e1ff2jsnf9aa3166e46b'
 
-// export const enviroment = {
-//     production:false,
-//     API_KEY:'8545b49cf80e2e0e194a0e90dba5d237',
-//     API_URL:'https://api.openweathermap.org/data/2.5/',
 // }
-
-
-export interface Weather {
-    coord:      Coord;
-    weather:    WeatherElement[];
-    base:       string;
-    main:       Main;
-    visibility: number;
-    wind:       Wind;
-    clouds:     Clouds;
-    dt:         number;
-    sys:        Sys;
-    timezone:   number;
-    id:         number;
-    name:       string;
-    cod:        number;
+export const envoiroment ={
+    prduction:false,
+    baseurl:'https://weatherapi-com.p.rapidapi.com/current.json?q=okara',
+    XrapidAPIhostHeaderName:'x-rapidapi-host',
+    XrapidAPIhostHeaderValue:'weatherapi-com.p.rapidapi.com',
+    XrapidAPIKeyHeaderName:'x-rapidapi-key',
+    XrapidAPIKeyHeaderValue: '05114c293amsh127f01a65041292p1e1ff2jsnf9aa3166e46b',
 }
-
-export interface Clouds {
-    all: number;
-}
-
-export interface Coord {
-    lon: number;
-    lat: number;
-}
-
-export interface Main {
-    temp:       number;
-    feels_like: number;
-    temp_min:   number;
-    temp_max:   number;
-    pressure:   number;
-    humidity:   number;
-    sea_level:  number;
-    grnd_level: number;
-}
-
-export interface Sys {
-    type:    number;
-    id:      number;
-    country: string;
-    sunrise: number;
-    sunset:  number;
-}
-
-export interface WeatherElement {
-    id:          number;
-    main:        string;
-    description: string;
-    icon:        string;
-}
-
-export interface Wind {
-    speed: number;
-    deg:   number;
-    gust:  number;
-}
-
-
-

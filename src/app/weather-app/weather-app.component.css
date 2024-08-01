@@ -97,6 +97,9 @@ margin-top: 1em;
 .info-block-value-4{
     margin-left: 60px;
 }
+.info-block-value{
+margin-left: 80px;
+}
 /* .info-block-value{
     width: 50%;
     display: flex;

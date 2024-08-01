@@ -3,6 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { WeatherService } from '../services/weather.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 // import { enviroment } from '../enviroment/enviroment';
+import { envoiroment } from '../enviroment/enviroment';
+import { RootObject  } from '../models/weather';
+import { Root } from '../models/weather';
+
+
 
 // const ApI_URL = enviroment.API_URL;
 // const API_KEY = enviroment.API_KEY
@@ -11,7 +16,7 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
   templateUrl: './weather-app.component.html',
   styleUrl: './weather-app.component.css'
 })
-export class WeatherAppComponent {
+export class WeatherAppComponent implements OnInit{
 
   // city!:string ;
   // WeatherData:any;
@@ -59,42 +64,48 @@ export class WeatherAppComponent {
 //     console.log(this.weatherTemp)
 //   })
 // }
-constructor(private weatherDervice:WeatherService){}
-temp:number= 0;
-// temprature:number = 0;
-// Mintemprature:number = 0;
+// constructor(private weatherDervice:WeatherService){
+//   this.todayDate = new Date()
+// }
+// temp:number= 0;
+
+// temp_max:number = 0;
+// temp_min:number=0;
 // humidity:number = 0;
-// weather:string = '';
-// query:boolean = false;
-// pressure:number = 0;
-temp_max:number = 0;
-temp_min:number=0;
-humidity:number = 0;
-grnd_level:number = 0;
-feels_like:number = 0;
-sea_level:number= 0;
+// grnd_level:number = 0;
+// feels_like:number = 0;
+// sea_level:number= 0;
 
-
-
+// RootObject ? :RootObject;
+todayDate ! : Date;
 city:any= "";
+cityName : string='';
+// Current?:Current
+// Location?:Location
+// RootObject?:RootObject
+Root?:Root;
+RootObject?:RootObject
+constructor(private weatherservice:WeatherService){
+  this.todayDate = new Date()
+}
 
-getWeather(){
-  // console.log(this.city);
-  this.weatherDervice.getWeather(this.city).subscribe(data=>{
-    console.log(data);
-    // this.query = true;
-    this.temp_max = data.main.temp_max -273
-    this.temp= data.main.temp -273
-    this.temp_min =data.main.temp_min -273
-    this.humidity = data.main.humidity;
-    this.grnd_level = data.main.grnd_level -273
-    this.feels_like = data.main.feels_like -273
-    this.sea_level = data.main.sea_level;
-    // this.Mintemprature = data.main.temp_min -273
-    // this.temprature = data.main.temp_max - 273
-    // this.humidity = data.main.humidity;
-    // this.weather = data.weather[0].main;
-    // this.pressure = data.main.pressure
+ngOnInit(): void {
+  this.GetWeatherData (this.cityName);
+  this.cityName= '';
+}
+onSubmit(){
+this.GetWeatherData (this.cityName);
+this.cityName= '';
+}
+
+private GetWeatherData(CityName:string){
+ return this.weatherservice.getWeatherData('cityName')
+  .subscribe({
+    next:(Response)=>{
+      this.Root = Response;
+      console.log(Response)
+      
+    }
   })
 }
 
@@ -107,43 +118,94 @@ getWeather(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// getWeather(){
+//   this.weatherDervice.getWeather(this.city).subscribe(data=>{
+//     console.log(data);
+  
+//     this.temp_max = data.main.temp_max -273
+//     this.temp= data.main.temp -273
+//     this.temp_min =data.main.temp_min -273
+//     this.humidity = data.main.humidity;
+//     this.grnd_level = data.main.grnd_level -273
+//     this.feels_like = data.main.feels_like -273
+//     this.sea_level = data.main.sea_level;
+
+//   })
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
