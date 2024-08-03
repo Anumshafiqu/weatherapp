@@ -4,7 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { envoiroment } from '../enviroment/enviroment';
 import { __param } from 'tslib';
-import {  Root, RootObject } from '../models/weather';
+import { Weather } from '../models/weather';
+// import {  Root  } from '../models/weather';
+// import { RootObject } from '../models/weather';
+
 
 
 
@@ -48,15 +51,15 @@ constructor(private http:HttpClient){
   
 //   }
 
-getWeatherData(cityName:string):Observable<Root> {
-  return this.http.get<Root>(envoiroment.baseurl,{
+getWeatherData(cityName:string):Observable<Weather> {
+  return this.http.get<Weather>(envoiroment.baseurl,{
      headers:new HttpHeaders()
      .set(envoiroment.XrapidAPIhostHeaderName,envoiroment.XrapidAPIhostHeaderValue)
      .set(envoiroment.XrapidAPIKeyHeaderName,envoiroment.XrapidAPIKeyHeaderValue),
-    //  params:new HttpParams()
-    //  .set('q',cityName )
-    //  .set('units' , 'standard')
-    //  .set('mode'  , 'fetch')
+     params:new HttpParams()
+    .set('q', cityName )
+     .set('units' , 'standard')
+     .set('mode'  , 'fetch')
      
    })
    

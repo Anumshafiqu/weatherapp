@@ -1,0 +1,20 @@
+
+
+
+<div class="weather-container mt-3">
+  <div class="example-full-width">
+    <input matInput placeholder="Enter city" [(ngModel)]="city" (keyup.enter)="onSearch()" class="mt-4">
+    <button mat-button matSuffix mat-icon-button aria-label="Search" (click)="onSearch()" class="p-2 btn btn-primary rounded-0 mx-1">
+      seaarch
+    </button>
+  </div>
+  
+  <div *ngIf="weatherData">
+    <h2 class="mt-3">{{ weatherData.name }}, {{ weatherData.sys.country }}</h2>
+    <p class="mt-3 fw-bold">Temperature: {{ weatherData.main.temp | number:'1.0-0'}} °C</p>
+    <p class="mt-3 fw-bold">Condition: {{ weatherData.weather[0].description }}</p>
+    <img [src]="'http://openweathermap.org/img/w/' + weatherData.weather[0].icon + '.png'" alt="Weather icon">
+    <p class="mt-3 fw-bold">Humidity: {{ weatherData.main.humidity }}%</p>
+    <p class="mt-3 fw-bold">Wind: {{ weatherData.wind.speed }} m/s</p>
+  </div>
+</div>

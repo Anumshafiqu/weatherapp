@@ -4,8 +4,9 @@ import { WeatherService } from '../services/weather.service';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 // import { enviroment } from '../enviroment/enviroment';
 import { envoiroment } from '../enviroment/enviroment';
-import { RootObject  } from '../models/weather';
-import { Root } from '../models/weather';
+import { Weather } from '../models/weather';
+// import { RootObject  } from '../models/weather';
+// import { Root } from '../models/weather';
 
 
 
@@ -16,7 +17,7 @@ import { Root } from '../models/weather';
   templateUrl: './weather-app.component.html',
   styleUrl: './weather-app.component.css'
 })
-export class WeatherAppComponent implements OnInit{
+export class WeatherAppComponent {
 
   // city!:string ;
   // WeatherData:any;
@@ -77,14 +78,13 @@ export class WeatherAppComponent implements OnInit{
 // sea_level:number= 0;
 
 // RootObject ? :RootObject;
-todayDate ! : Date;
-city:any= "";
-cityName : string='';
+ todayDate ! : Date;
+// city:any= "";
+ cityName : string='okara';
 // Current?:Current
 // Location?:Location
 // RootObject?:RootObject
-Root?:Root;
-RootObject?:RootObject
+Weather?:Weather
 constructor(private weatherservice:WeatherService){
   this.todayDate = new Date()
 }
@@ -97,28 +97,28 @@ onSubmit(){
 this.GetWeatherData (this.cityName);
 this.cityName= '';
 }
-
 private GetWeatherData(CityName:string){
  return this.weatherservice.getWeatherData('cityName')
   .subscribe({
     next:(Response)=>{
-      this.Root = Response;
+      this.Weather = Response;
       console.log(Response)
       
     }
   })
 }
-
-
-
-
-
-
-
-
-
-
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 

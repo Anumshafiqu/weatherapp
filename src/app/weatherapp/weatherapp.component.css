@@ -1,0 +1,18 @@
+
+.weather-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: rgb(9, 9, 95);
+    color: white;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+  }
+  input{
+    background-color:rgb(9, 9, 95) ;
+    color: white;
+    padding: 8px;
+    border:  2px solid white;
+  }

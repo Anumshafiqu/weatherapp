@@ -13,7 +13,7 @@
 // }
 export const envoiroment ={
     prduction:false,
-    baseurl:'https://weatherapi-com.p.rapidapi.com/current.json?q=okara',
+    baseurl:'https://weatherapi-com.p.rapidapi.com/current.json?q=53.1%2C-0.13',
     XrapidAPIhostHeaderName:'x-rapidapi-host',
     XrapidAPIhostHeaderValue:'weatherapi-com.p.rapidapi.com',
     XrapidAPIKeyHeaderName:'x-rapidapi-key',

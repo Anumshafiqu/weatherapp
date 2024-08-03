@@ -7,11 +7,14 @@ import { WeatherAppComponent } from './weather-app/weather-app.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { WeatherappComponent } from './weatherapp/weatherapp.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    WeatherAppComponent
+    WeatherAppComponent,
+    WeatherappComponent
   ],
   imports: [
     BrowserModule,
