@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Current } from '../models/weather';
+import { HttpErrorResponse } from '@angular/common/http';
+import {  throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -17,4 +22,6 @@ export class EnviromentService {
     const url = `${this.apiUrl}?q=${city}&units=metric&appid=${this.apiKey}`;
     return this.http.get<any>(url);
   }
+
+
 }

@@ -8,13 +8,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { WeatherappComponent } from './weatherapp/weatherapp.component';
+import { TestComponent } from './test/test.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherAppComponent,
-    WeatherappComponent
+    WeatherappComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,

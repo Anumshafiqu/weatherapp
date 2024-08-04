@@ -1,0 +1,13 @@
+
+<div *ngFor="let todo of todos">
+    <div *ngIf="!todo.editing">
+      <span>{{ todo.title }}</span>
+      <button (click)="editTodo(todo)">Edit</button>
+    </div>
+  
+    <div *ngIf="todo.editing">
+      <input [(ngModel)]="todo.title" />
+      <button (click)="saveTodo(todo, todo.title)">Save</button>
+      <button (click)="cancelEdit(todo)">Cancel</button>
+    </div>
+  </div>
